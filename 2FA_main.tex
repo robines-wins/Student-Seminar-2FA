@@ -1,0 +1,39 @@
+
+\documentclass[11pt]{article}
+
+\usepackage{ifpdf}
+\ifpdf 
+    \usepackage[pdftex]{graphicx}   % to include graphics
+    \pdfcompresslevel=9 
+    \usepackage[pdftex,     % sets up hyperref to use pdftex driver
+            plainpages=false,   % allows page i and 1 to exist in the same document
+            breaklinks=true,    % link texts can be broken at the end of line
+            colorlinks=true,
+            pdftitle=My Document
+            pdfauthor=Robin Solignac
+           ]{hyperref} 
+    \usepackage{thumbpdf}
+\else 
+    \usepackage{graphicx}       % to include graphics
+    \usepackage{hyperref}       % to simplify the use of \href
+\fi 
+
+\title{Student Seminar: \\Exploiting Two Factor Authentication of Android and IOS}
+\author{Robin Solignac 235020}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+   Applications  which  can  be  used  in  different  platforms  (e.g.   PC,  phone,  tablet)  now  use  two
+factor authentication (2FA) to allow users to conveniently switch from one platform to another.
+For example, when a user tries to login his gmail, it is not enough to enter correct password (first
+factor), it is also necessary to enter a PIN which is received by an SMS (second factor).  The aim
+of this project explaining the attacks against 2FA in IOS and Android devices and what it can
+be the solution. 
+\end{abstract}
+\section{Introduction}
+\subsection{2FA: 2 Factors Authentification}
+blablba bla
+\subsection{Smartphone and anywhere computing}
+\end{document}  
