@@ -1,5 +1,6 @@
 
 \documentclass[11pt]{article}
+%\documentclass[11pt,conference,compsocconf]{IEEEtran}
 
 \usepackage[T1]{fontenc}
 \usepackage{verbatim}
@@ -30,10 +31,10 @@
 \begin{abstract}
 Applications  which  can  be  used  in  different  platforms  now  use  two
 factor authentication (2FA) to allow users to conveniently switch from one platform to another.
-For example, when a user tries to login his gmail, it is not enough to enter correct password (first
-factor), it is also necessary to enter a PIN which is received by an SMS (second factor).  The aim
-of this project explaining the attacks against 2FA in IOS and Android devices and what it can
-be the solution. 
+For example, when a user tries to login his gmail, it is not enough to enter correct password 
+(first factor), it is also necessary to enter a PIN which is received by an SMS (second factor).
+The aim of this project explaining the attacks against 2FA in IOS and Android devices and 
+what can be the solutions. 
 \end{abstract}
 
 \section{Introduction: The current 2 Factors Authentification}
@@ -98,10 +99,25 @@ system, by API hooking or via malicious plugin. TO COMPLETE ?
 \section{2FA Attack on }
 \subsection{Android}
 \subsection{Ios}
+Since 2015 Ios has forbid the application to read all 
+notificatino or SMS without explicit autorization (or they will be rejected from entering the appstore). So 
+the previous attack does not work. 
+
+However if the infected browser is on a Mac and Continity 
+is activated on the Iphone. the browser can still has acces to to SMS in clear 
+on the mac as soon as both are on the same LAN, which is likely to eventually occurs
+as they belong to the same person. 
+
+So under these pretty likely to appers conditons, the 2FA authentification can 
+be very easily bypassed on 2FA by an MitB attack.
+
+
 \section{Discutions} 
-\section{conclusion}
+\subsection{Android}
+\subsection{Ios}
+\section{Conclusion}
 
 \bibliography{ref} 
-\bibliographystyle{ieeetr}
+%\bibliographystyle{ieeetr}
 
 \end{document}  
