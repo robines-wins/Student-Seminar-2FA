@@ -98,10 +98,24 @@ there are different way to do a MitB attack, using malware infecting the whole
 system, by API hooking or via malicious plugin. TO COMPLETE ?
 \section{2FA Attack on }
 \subsection{Android}
+The principle to the attack is to, via a MitB, install from the web play-store an
+application from with autorization to read SMS (autorisation confirmed from the browser 
+too). Then when an SMS is received it is forward to the attacker, thus bypassing 
+F2A. In order to succed the attacker need to pass two defense setup by Google.
+
+\paragraph{Bypassing Google boncer} llzezeffe
+
+\paragraph{Activate the app} When installed, an Android app can't be triggered 
+by external event (such as RECEIVE\_SMS) until it has been explicitly open for 
+the first time. So we need to trick the user to open the app from the phone. The 
+first way is to give a clickbait title to the app so that the user will be 
+tempted to open it when he sees the installation notification.
+The second is to trigger its opening from the mobile browser by cliking a link
+
 \subsection{Ios}
 Since 2015 Ios has forbid the application to read all 
-notificatino or SMS without explicit autorization (or they will be rejected from entering the appstore). So 
-the previous attack does not work. 
+notificatino or SMS without explicit autorization (or they will be rejected from entering the appstore). 
+Since then, the previous attack does not work. 
 
 However if the infected browser is on a Mac and Continity 
 is activated on the Iphone. the browser can still has acces to to SMS in clear 
@@ -117,7 +131,7 @@ be very easily bypassed on 2FA by an MitB attack.
 \subsection{Ios}
 \section{Conclusion}
 
-\bibliography{ref} 
+%\bibliography{ref} 
 %\bibliographystyle{ieeetr}
 
 \end{document}  
