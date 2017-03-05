@@ -41,26 +41,26 @@ what can be the solutions.
 
 \section{Introduction: The current 2 Factors Authentication}
 
-Two factor authentication (2FA) is a combination of 2 acces control requirement in 
-order to make it more robust to attacker. to authenticate yourself to an online 
-service you both need to provide something you know (your password) and 
-something you have. 
-A large majority of people in todays world has phone and a large share of 
-them are smart, one of the most most used ``something you have''  is a phone or 
-a smartphone
+Two factor authentication (2FA) is a combination of 2 access control  in order to make it more robust to attacker.The general model is that to authenticate yourself to an online service you both need to provide an information you know (your password) and use a physical object you have. 
+One of the most most used "physical object" is a phone or a smartphone
+as large majority of people in today's world has one.
+More specifically, it's the fact it's possible, through this phone, to send a message who will not transit by the (maybe compromised) PC 
+who is used. your smartphone is used as an out of band channel.
 
-More than that, it's the fact that the service can through this phone
-send you a message  who will not transit on your (maybe compromised) PC 
-who is used. your smartphone is an out of band channel.
+As their exist other 2FA scheme we will only study here the ones using smartphone as they are the most frequent used. Moreover the attack will focus on SMS based scheme.
+It make sense to focus attack only on this SMS based 2FA because, as it will discussed later most of the service offering more secure 2FA scheme on smartphone also propose this one as a backup solution.
 
-the current 2FA scheme is the following: after a successful password authentication it send a One-
-Time Passwords (OTP) to the smartphone of the user most of the time via SMS 
-but also sometime via a dedicated app.
+The precise scheme assumed here is the following: assuming we want to authentication to a service on a PC, after a successful password authentication, the user is required to enter (on the PC) a One-Time Passwords (OTP) send by SMS to the phone in order to fully authenticate to the service. 
+
+This paper will present 2 attack to break this authentication assuming a compromise PC and a sane smartphone. The former is to be used on android smartphone, the later on Ios.
+
+This paper is essentially based on AAAAAAAAAAAAAA by BBBBBBBBB
 
 %\subsection{2FA: 2 Factors Authentification}
 \section{Key concepts}
-\subsection{Syncornisation}
-Our use of informatic is mostly divided beetween our personnal computers 
+Before describing precisely the attack, this section will explain and summarize the Key concept used by the 2 two attack,  The first subsection will describe what is synchronization and why it's a threat to the 2FA concept. the second describe the setup in which we assume the attack are performed: the phone is sane. the PC is compromised and is able perform a Man in the Browser attack.
+\subsection{Synchronization}
+Our use of informatics is mostly divided between our personal computers 
 and smartphones. for this reason software manufacturer have sometime decided to implement 
 syncronisation processes beetween the 2 devices in order to make transition and 
 general use of the 2 smoother, bluring the line beetween the two. 
