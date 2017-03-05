@@ -61,13 +61,11 @@ This paper is essentially based on AAAAAAAAAAAAAA by BBBBBBBBB
 Before describing precisely the attack, this section will explain and summarize the Key concept used by the 2 two attack,  The first subsection will describe what is synchronization and why it's a threat to the 2FA concept. the second describe the setup in which we assume the attack are performed: the phone is sane. the PC is compromised and is able perform a Man in the Browser attack.
 \subsection{Synchronization}
 Our use of informatics is mostly divided between our personal computers 
-and smartphones. for this reason software manufacturer have sometime decided to implement 
-syncronisation processes beetween the 2 devices in order to make transition and 
-general use of the 2 smoother, bluring the line beetween the two. 
+and smartphones. for this reason software manufacturer have sometime decided to implement synchronization processes between the 2 devices in order to make transition and general use of the 2 smoother, blurring the line between the two. This mean that the smartphone is less and less out of band with respect to the PC, which is the main assumption done by 2FA scheme using smartphone.
 
-3 exemple of such syncronisation who will be used in our attack are the 
+3 example of such synchronization who will be used in our attack are the 
 following:
-\begin{description}%[\IEEEsetlabelwidth{Google play remote install}]
+\begin{description}
   \item[Google play remote install] it's possible from a PC via the google play 
   website to remotly install an application on our phone if both are logged on 
   the same google account. the only thing appering on the phone afterward is the 
