@@ -87,32 +87,20 @@ following:
   it will sync history, boommark and sometime currently open tabs 
 \end{description}
 \subsection{MitB: Man in the browser attack}
-MitB is a type of attack who assume that the attacker has an entier control and 
-view on the PC browser of the victim. Like a man in the middle attack, the attaker can see all data 
-exchanged by the browser and server and can modify them (on the fly). it also can send and receive 
-data in the name of the user. 
-But unlike the former it has acces to these data before they encrypted (or after they are decryted) 
-And has also modify browser related setting like bookmark and current open tabs 
-URLs. In short powerfull man in the browser attack can remotelly perform the same actions 
-has someone getting physical acces to the browser
+MitB is a type of attack who assume that the attacker has an entier control and view on the PC browser of the victim. Like a man in the middle attack, the attaker can see all data 
+exchanged by the browser and server and can modify them (on the fly). it also can send and receive data in the name of the user. But unlike the former it has acces to these data before they encrypted (or after they are decryted) And has also modify browser related setting like bookmark and current open tabs URLs. In short powerfull man in the browser attack can remotelly perform the same actions has someone getting physical acces to the browser
 
-there are different way to do a MitB attack, using malware infecting the whole 
-system, by API hooking or via malicious plugin. TO COMPLETE ?
+there are different way to do a MitB attack, using malware infecting the whole system, by API hooking or via malicious plugin. TO COMPLETE ?
 \section{2FA Attack on }
 \subsection{Android}
-The principle to the attack is to, via a MitB, install from the web play-store an
-application from with autorization to read SMS (autorisation confirmed from the browser 
+The principle to the attack is to, via a MitB, install from the web play-store anapplication from with autorization to read SMS (autorisation confirmed from the browser 
 too). Then when an SMS is received it is forward to the attacker, thus bypassing 
 F2A. In order to succed the attacker need to pass two defense setup by Google.
 
 \paragraph{Bypassing Google boncer} llzezeffe
 
-\paragraph{Activate the app} When installed, an Android app can't be triggered 
-by external event (such as RECEIVE\_SMS) until it has been explicitly open for 
-the first time. So we need to trick the user to open the app from the phone. The 
-first way is to give a clickbait title to the app so that the user will be 
-tempted to open it when he sees the installation notification.
-The second is to trigger its opening from the mobile browser by cliking a link
+\paragraph{Activate the app} When installed, an Android app can't be triggered by external event (such as RECEIVE\_SMS) until it has been explicitly open for the first time. So we need to trick the user to open the app from the phone. The 
+first way is to give a clickbait title to the app so that the user will be tempted to open it when he sees the installation notification.The second is to trigger its opening from the mobile browser by cliking a link
 
 \subsection{Ios}
 Since 2015 Ios has forbid the application to read all 
