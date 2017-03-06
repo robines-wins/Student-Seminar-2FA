@@ -48,7 +48,7 @@ More specifically, it's the fact it's possible, through this phone, to send a me
 who is used. your smartphone is used as an out of band channel.
 
 While it exist other 2FA schemes we will only study here the ones using smartphones as they are the most frequent in practice. Moreover the attack will focus on SMS based scheme.
-It make sense to focus attack only on this SMS based 2FA because, as it will discussed later most of the other smartphones 2FA proposed by services an be passed by asking for SMS 2FA instead.
+It make sense as it will discussed later that most of the other smartphones 2FA proposed by services an be passed by asking for SMS 2FA instead.
 
 The precise scheme assumed here is the following: assuming we want to authentication to a service on a PC, after a successful password authentication, the user is required to enter (on the PC) a One-Time Passwords (OTP) send by SMS to the phone in order to fully authenticate to the service. 
 
@@ -77,8 +77,11 @@ MitB is a type of attack who assume that the attacker has an entire control and 
 exchanged by the browser and server and can modify them (on the fly). it also can send and receive data in the name of the user. But unlike the former it has access to these data before they encrypted (or after they are decrypted) And has also modify browser r elated setting like bookmark and current open tabs URLs. In short powerful man in the browser attack can remotely perform the same actions has someone getting physical access to the browser as well as modify content of request and responses messages.
 
 there are different way to do a MitB attack, using malware infecting the whole system, by API hooking or via malicious plugin. TO COMPLETE ?
+
+
 \section{2FA Attack}
  this section describe attack to defeat 2FA under the following model. We assume that the PC of the customer is compromised and can perform man in the browser attack. The attacker try to authenticate on a service from the PC, It has get the password from the PC infection but the service request a second factor authentication by sending a one time password (OTP) by SMS to the victim smartphone who run is either under Adroid or Ios. 
+This choice of model is motivated by the fact that 2FA is specially design to prevent authentication to services because of an infected PC 
 \subsection{Android}
 The principle to the attack is: via the MitB, install from the web play-store  an application from with authorization to read SMS (authorization confirmed from the browser too). Then when an SMS is received it is forward via internet to the attacker, who can successfully authenticate In order to succeed the attacker need to pass two defense setup by Google.
 
@@ -89,26 +92,24 @@ first way is to give a clickbait title to the app so that the user will be tempt
 
 The second is to trigger its opening from the mobile browser by cliking a link
 
-In both case just after this opening the can make itself deappear for homescreen and app tray, leaving little trace of it existence of the smartphone, only in the application list in the application part of the parameters menu. While still permanently running in the background.
+In both case just after this opening the can make itself disappear for homescreen and app tray, leaving little trace of it existence of the smartphone: only in the application list in the application part of the parameters menu. While still permanently running in the background.
 
 \subsection{Ios}
-Since 2015 Ios has forbid the application to read all 
-notificatino or SMS without explicit autorization (or they will be rejected from entering the appstore). 
+Since 2015 Ios has forbid the application to read all notification or SMS without explicit authorization (or they will be rejected from entering the appstore). 
 Since then, the previous attack does not work. 
 
-However if the infected browser is on a Mac and Continity 
-is activated on the Iphone. the browser can still has acces to to SMS in clear 
-on the mac as soon as both are on the same LAN, which is likely to eventually occurs
-as they belong to the same person. 
+However if the infected browser is on a Mac and Continuity is activated on the Iphone. the browser can still has access to to SMS in clear on the mac as soon as both are on the same LAN, which is likely to eventually occurs as they belong to the same person. 
 
-So under these pretty likely to appers conditons, the 2FA authentification can 
-be very easily bypassed on 2FA by an MitB attack.
+So under these pretty likely to appears conditions, the 2FA authentication can be very easily bypassed on 2FA by an MitB attack.
 
 
 \section{Discutions} 
 \subsection{Android}
 \subsection{Ios}
+The Ios version of the atack is even simpler. 
 \section{Conclusion}
+
+The very soul of 2FA using smartphone is the assumption that there's an air barrier between your smartphone and your channel and is has been true for many year. But except for 2FA this is perceive more as a default than a desirable feature, and so manufacturer are implementing more and more synergies between these devices as an intended behavior. This need to be taken in account while implementing 2FA on smartphone. services must make sure that the channel they are using is really out of band with the user PC. And what's sure is that SMS is not anymore.
 
 \bibliography{ref} 
 \bibliographystyle{plain}
