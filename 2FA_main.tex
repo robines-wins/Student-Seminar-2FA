@@ -54,7 +54,7 @@ The precise scheme assumed here is the following: assuming we want to authentica
 
 This paper will present 2 attacks to break this authentication assuming a compromise PC and a sane smartphone. The former is to be used with android, the later on Ios.
 
-This paper is essentially based on \href{http://fc16.ifca.ai/preproceedings/24_Konoth.pdf}{"How Anywhere Computing Just Killed Your Phone-Based Two-Factor Authentication" } by  Konoth, Radhesh Krishnan, Victor van der Veen, and Herbert Bos.
+This paper is essentially based on \href{http://fc16.ifca.ai/preproceedings/24_Konoth.pdf}{"How Anywhere Computing Just Killed Your Phone-Based Two-Factor Authentication" } by  Konoth, Radhesh Krishnan, Victor van der Veen, and Herbert Bos. \cite{Base}
 
 %\subsection{2FA: 2 Factors Authentification}
 \section{Key concepts}
@@ -78,16 +78,18 @@ exchanged by the browser and server and can modify them (on the fly). it also ca
 
 there are different way to do a MitB attack, using malware infecting the whole system, by API hooking or via malicious plugin. TO COMPLETE ?
 \section{2FA Attack}
-Now we will describe precisly the attack scheme. the model is the following. We assume that the PC of the customer is compromised and can perform man in the browser attack. The attacker try to authenticate on a service from the PC, It has the password because the PC is compromised () 
+ this section describe attack to defeat 2FA under the following model. We assume that the PC of the customer is compromised and can perform man in the browser attack. The attacker try to authenticate on a service from the PC, It has get the password from the PC infection but the service request a second factor authentication by sending a one time password (OTP) by SMS to the victim smartphone who run is either under Adroid or Ios. 
 \subsection{Android}
-The principle to the attack is to, via a MitB, install from the web play-store application from with authorization to read SMS (authorization confirmed from the browser 
-too). Then when an SMS is received it is forward to the attacker, thus bypassing 
-F2A. In order to succeed the attacker need to pass two defense setup by Google.
+The principle to the attack is: via the MitB, install from the web play-store  an application from with authorization to read SMS (authorization confirmed from the browser too). Then when an SMS is received it is forward via internet to the attacker, who can successfully authenticate In order to succeed the attacker need to pass two defense setup by Google.
 
 \paragraph{Bypassing Google boncer} llzezeffe
 
 \paragraph{Activate the app} When installed, an Android app can't be triggered by external event (such as RECEIVE\_SMS) until it has been explicitly open for the first time. So we need to trick the user to open the app from the phone. The 
-first way is to give a clickbait title to the app so that the user will be tempted to open it when he sees the installation notification.The second is to trigger its opening from the mobile browser by cliking a link
+first way is to give a clickbait title to the app so that the user will be tempted to open it when he sees the installation notification.
+
+The second is to trigger its opening from the mobile browser by cliking a link
+
+In both case just after this opening the can make itself deappear for homescreen and app tray, leaving little trace of it existence of the smartphone, only in the application list in the application part of the parameters menu. While still permanently running in the background.
 
 \subsection{Ios}
 Since 2015 Ios has forbid the application to read all 
@@ -108,7 +110,7 @@ be very easily bypassed on 2FA by an MitB attack.
 \subsection{Ios}
 \section{Conclusion}
 
-%\bibliography{ref} 
-%\bibliographystyle{ieeetr}
+\bibliography{ref} 
+\bibliographystyle{plain}
 
 \end{document}  
