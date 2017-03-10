@@ -4,6 +4,8 @@
 %\usepackage[margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{verbatim}
+\usepackage{biblatex}
+\addbibresource{ref.bib}
 
 \usepackage{ifpdf}
 \ifpdf 
@@ -127,7 +129,8 @@ SMS OTP are not the only existing schemes of 2FA on smartphones. Majority of ser
 The very soul of 2FA using smartphone is the assumption that there's an air barrier between your smartphone and your channel and is has been true for many years. But except for 2FA this barrier is not seen as a desirable feature anymore, and so it's been reduced over the year. This needs to be taken into account while implementing 2FA on smartphone. Services must make sure that the channel they are using is really out of band with the user's PC. What's sure is that today 2FA through SMS is not secure anymore on Android and iOS and should be avoided, even as a backup solution.
 
 \clearpage
-\bibliography{ref} 
-\bibliographystyle{plain}
+%\bibliography{ref} 
+%\bibliographystyle{plain}
+\printbibliography
 
 \end{document}  
