@@ -41,14 +41,16 @@ what can be the solutions.
 
 \section{Introduction: The 2 Factors Authentication}
 
-Two factor authentication (2FA) is a combination of 2 access control  in order to make the authentication more robust to attacker. The general model is: to authenticate yourself to an online service you both need to provide an information you know (your password) and use a physical object you have. 
+Two factor authentication (2FA) is a combination of 2 access control  in order to make the authentication more robust to attacker. The general model is: to authenticate yourself to an online service you both need to provide an information you know (i.e password) and use a physical object you have. 
 One of the most most used "physical object" is a phone or a smartphone as large majority of people in today's world has one.
-More specifically, it's the possibility, through this phone, to send a message who will not transit by the (maybe compromised) PC who is used. Your smartphone is used as an out of band channel.
+More specifically, it's the fact that your smartphone has out of band channels with respect to your PC which is used.
 
-While it exist other 2FA schemes we will only study here the ones using smartphones as they are the most frequent in practice. Moreover the attack will focus on SMS based scheme.
-It make sense as it will discussed later that most of the other smartphones 2FA proposed by services an be passed by asking for SMS 2FA instead.
+While other 2FA schemes exist ===CITE=== we will study here the ones using smartphones as they are the most frequent in practice. Moreover, the attack focus on SMS based scheme.
+This is motivated by the fact that, most of the time, other 2FA solutions  propose also SMS 2FA as a backup solution.
 
-The precise scheme assumed here is the following: assuming we want to authentication to a service on a PC, after a successful password authentication, the user is required to enter (on the PC) a One-Time Passwords (OTP) send by SMS to its phone in order to fully authenticate to the service. 
+Let's assume that the scheme is the following: We want to authenticate to a service on a PC. first the user is require to enter a password, if it's correct the user receive a One-Time Password (OTP) by SMS. Second the user enter the OTP, if its correct the user acceses to the service
+
+after a successful password authentication, the user is required to enter (on the PC) a One-Time Passwords (OTP) send by SMS to its phone in order to fully authenticate to the service. 
 
 This paper will present 2 attacks to break this authentication assuming a compromise PC and a sane smartphone. The former is to be used with android, the later on Ios.
 
