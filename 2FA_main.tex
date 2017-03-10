@@ -31,7 +31,7 @@
 
 \section{Introduction: The 2 Factors Authentication}
 
-Two factor authentication (2FA) is a combination of 2 access control  in order to make the authentication more robust to attacker. The general model is: to authenticate yourself to an online service you both need to provide an information you know (i.e password) and use a physical object you have. 
+Two factor authentication (2FA) is a combination of 2 access control  in order to make the authentication more robust to attacker. The general model is: to authenticate yourself to an online service you need to provide both an information you know (i.e password) and use a physical object you have. 
 One of the most most used "physical object" is a phone or a smartphone as large majority of people in today's world has one.
 
 More specifically, it's the fact that your smartphone has out of band channels with respect to your PC which is used. it assume that if only the PC is compromised, the channels used to communicate with the smartphone are still secure
@@ -102,12 +102,12 @@ This section will discuss practical feasibility of these attacks and potential s
 \subsection{It's not a exploit, it's a feature}
 Before talking about feasibility we must emphase a particularity of these two attacks: After the initial infection of the PC, no exploit, bug or hack are used. Every tool we used as been purposely designed for how we use them. Service providers (i.e, Google, Apple, Mozilla, ...) try to reduce the air gap between the PC and the smartphone and at the same time security engineer rely on it too construct secure 2FA.
 
-And that's why defeat  these attacks are complicated, there's nothing fix. Either developers should modify the offered sync possibilities, And most of the time it would mean reducing them. Or security engineers should modify the assumption they make on 2FA, which mean finding new ones. 
+And that's why defeat  these attacks are complicated, there's nothing fix. Either developers should modify the offered synchronization possibilities, And most of the time it would mean reducing them. Or security engineers should modify the assumption they make on 2FA, which mean finding new ones. 
 \subsection{Android}
 
 This attack is largely feasible because its nearly impossible to use an Android phone without Google account and if you have one it's extremely likely that you will also use it on your PC. And a Google account gives both the possibility the remotely install app and modify Google chrome sync settings
 
-However, the truth is that a the solution against to this attack already exists but can still be bypassed. The solution is the following: Since Android Marshmallow, deployed in October 2015, the authorization model has change. All authorizations are now granted individually at run time when needed. With this new model, authorization to read SMS can't be given from a remote browser because  it require text box confirmation on the phone screen. The only problem is that if the app is compiled for older version of Android the authorization scheme will be the old one while still running on newer versions. But it is likely that in the future, it will be forbidden for apps to be compile for versions older than Marshmallow.
+However, the truth is that a the solution against to this attack already exists but can still be bypassed. The solution is the following: Since Android Marshmallow, deployed in October 2015, the authorization model has changed. All authorizations are now granted individually at run time when needed. With this new model, authorization to read SMS can't be given from a remote browser because  it require text box confirmation on the phone screen. The only problem is that if the app is compiled for older version of Android the authorization scheme will be the old one while still running on newer versions. But it is likely that in the future, it will be forbidden for apps to be compile for versions older than Marshmallow.
 
 It's also likely that the pure engineering challenge Google bouncer will become more and more powerfull in the future. 
 
