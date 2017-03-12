@@ -4,6 +4,8 @@
 %\usepackage[margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{verbatim}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{ref.bib}
 
 \usepackage{ifpdf}
 \ifpdf 
@@ -31,12 +33,12 @@
 
 \section{Introduction: The 2 Factors Authentication}
 
-Two factor authentication (2FA) is a combination of 2 access control  in order to make the authentication more robust to attacker. The general model is: to authenticate yourself to an online service you both need to provide an information you know (i.e password) and use a physical object you have. 
+Two factor authentication (2FA) is a combination of 2 access control  in order to make the authentication more robust to attacker. The general model is: to authenticate yourself to an online service you need to provide both an information you know (i.e password) and use a physical object you have (i.e \cite{wiki:secure}). 
 One of the most most used "physical object" is a phone or a smartphone as large majority of people in today's world has one.
 
 More specifically, it's the fact that your smartphone has out of band channels with respect to your PC which is used. it assume that if only the PC is compromised, the channels used to communicate with the smartphone are still secure
 
-While other 2FA schemes exist ===CITE=== we will study here the ones using smartphones as they are the most frequent in practice. Moreover, the attack focus on SMS based scheme.
+While other 2FA schemes exist \cite{wiki:secure,wiki:card} we will study here the ones using smartphones as they are the most frequent in practice. Moreover, the attack focus on SMS based scheme.
 This is motivated by the fact that, most of the time, other 2FA solutions  propose also SMS 2FA as a backup solution.
 
 Let's assume that the scheme is the following: We want to authenticate to a service on a PC. first the user is require to enter a password, if it's correct the user receive a One-Time Password (OTP) by SMS. Second the user enter the OTP, if its correct the user accesses to the service
@@ -63,7 +65,7 @@ Three examples of such synchronization which are used in the attacks are the fol
 MitB is a type of attack resulting in the attacker having an entire control and view on the PC browser of the victim. Like a man in the middle attack, the attacker can see all data 
 exchanged between the browser and server and can modify them (on the fly). It also can send and receive data in the name of the user. But unlike the former, it has access to these data \emph{before they are encrypted and after they are decrypted}. It can also modify browser related settings like bookmarks, history and current open tabs. In short, a powerful man in the browser attack can remotely perform the same actions has someone getting physical access to the browser as well as modify content of the requests and responses.
 
-There are different ways to do a MitB attack, using malware infecting the whole system, by API hooking or via malicious plugin ====CITE====.
+There are different ways to do a MitB attack, using malware infecting the whole system, by API hooking or via malicious plugin \cite{mitb:1,mitb:2}.
 
 
 \section{2FA Attack}
@@ -76,7 +78,7 @@ In order to succeed the attacker need to pass two defense setup by Google.
 
 \paragraph{Bypassing Google bouncer} Google remote install only allows to install application published on the Google play store. So the attacker needs to publish an SMS stealing app on the store. In order to do this it must bypass Google Bouncer which is an automated malware analysis tool deployed by Google on its store. Whenever an app is uploaded to the store, it's analyzed by Bouncer, which performs static analysis (e.g code inspection, ...) as well as dynamic analysis (i.e, sending request to the app and analyzing the resulting behavior)
 
-Recent work CITE show that this defense is easy to bypass in various ways. CITE. \cite{Base} is using another clever way. the app opens a poorly protected of web window, not visible on the smartphone screen. From which it's possible to remotely execute malicious (Javascript) code on the phone. As this code is invisible to Google boncer the app will not be detected as malicious.
+Recent work \cite{bouncer:1,bouncer:2} show that this defense is easy to bypass in various ways. \cite{Base} is using another clever way. the app opens a poorly protected of web window, not visible on the smartphone screen. From which it's possible to remotely execute malicious (Javascript) code on the phone. As this code is invisible to Google boncer the app will not be detected as malicious.
 
 Let us note that this possibility to load web content and let it execute some code on the app is another intended feature made by Google called Web-View.
 
@@ -102,12 +104,12 @@ This section will discuss practical feasibility of these attacks and potential s
 \subsection{It's not a exploit, it's a feature}
 Before talking about feasibility we must emphase a particularity of these two attacks: After the initial infection of the PC, no exploit, bug or hack are used. Every tool we used as been purposely designed for how we use them. Service providers (i.e, Google, Apple, Mozilla, ...) try to reduce the air gap between the PC and the smartphone and at the same time security engineer rely on it too construct secure 2FA.
 
-And that's why defeat  these attacks are complicated, there's nothing fix. Either developers should modify the offered sync possibilities, And most of the time it would mean reducing them. Or security engineers should modify the assumption they make on 2FA, which mean finding new ones. 
+And that's why defeat  these attacks are complicated, there's nothing fix. Either developers should modify the offered synchronization possibilities, And most of the time it would mean reducing them. Or security engineers should modify the assumption they make on 2FA, which mean finding new ones. 
 \subsection{Android}
 
 This attack is largely feasible because its nearly impossible to use an Android phone without Google account and if you have one it's extremely likely that you will also use it on your PC. And a Google account gives both the possibility the remotely install app and modify Google chrome sync settings
 
-However, the truth is that a the solution against to this attack already exists but can still be bypassed. The solution is the following: Since Android Marshmallow, deployed in October 2015, the authorization model has change. All authorizations are now granted individually at run time when needed. With this new model, authorization to read SMS can't be given from a remote browser because  it require text box confirmation on the phone screen. The only problem is that if the app is compiled for older version of Android the authorization scheme will be the old one while still running on newer versions. But it is likely that in the future, it will be forbidden for apps to be compile for versions older than Marshmallow.
+However, the truth is that a the solution against to this attack already exists but can still be bypassed. The solution is the following: Since Android Marshmallow, deployed in October 2015, the authorization model has changed. All authorizations are now granted individually at run time when needed. With this new model, authorization to read SMS can't be given from a remote browser because  it require text box confirmation on the phone screen. The only problem is that if the app is compiled for older version of Android the authorization scheme will be the old one while still running on newer versions. But it is likely that in the future, it will be forbidden for apps to be compile for versions older than Marshmallow.
 
 It's also likely that the pure engineering challenge Google bouncer will become more and more powerfull in the future. 
 
@@ -127,7 +129,10 @@ SMS OTP are not the only existing schemes of 2FA on smartphones. Majority of ser
 The very soul of 2FA using smartphone is the assumption that there's an air barrier between your smartphone and your channel and is has been true for many years. But except for 2FA this barrier is not seen as a desirable feature anymore, and so it's been reduced over the year. This needs to be taken into account while implementing 2FA on smartphone. Services must make sure that the channel they are using is really out of band with the user's PC. What's sure is that today 2FA through SMS is not secure anymore on Android and iOS and should be avoided, even as a backup solution.
 
 \clearpage
-\bibliography{ref} 
-\bibliographystyle{plain}
+%\bibliography{ref} 
+%\bibliographystyle{plain}
+\printbibliography
+
+Other references can be fond in the original paper \cite{Base} 
 
 \end{document}  
